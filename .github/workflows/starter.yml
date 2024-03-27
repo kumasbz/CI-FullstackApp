@@ -14,11 +14,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-
     steps:
       # Check out the code from the repository.
       - uses: actions/checkout@v3
@@ -26,7 +21,7 @@ jobs:
       # Set up a Node.js environment using the specified node version.
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16.9.0
 
       # Install the dependencies.
       - run: cd backend && npm ci
